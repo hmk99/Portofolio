@@ -1,0 +1,346 @@
+.App{
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  color: white;
+  scroll-behavior: smooth !important;
+  background-color: #1A1A40;
+  overflow-x: hidden !important;
+  overflow: hidden;
+}
+#home, #works, #about, #contact{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+#home{
+  background-color: #1A1A40;
+  color: white;
+}
+#about{
+  background-color: #242456;
+}
+#works{
+  background-color: hsl(210, 50%, 33%);
+}
+#contact{
+  background-color: #FA58B6;
+}
+nav > h1{
+  background: linear-gradient(to top left, #b5b5b5 , rgb(255, 255, 255) , #5b5b5b );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+nav{
+  width: 90%;
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0;
+  position: fixed;
+  top: 0;
+  padding: 5px;
+  z-index: 2;
+}
+.routes{
+  width: 10%;
+  height: 20%;
+  z-index: 2;
+  position: fixed;
+  left: 0;
+  top: 40%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.homeMain, .aboutMain, .worksMain, .contactMain{
+  margin: auto;
+  width: 90%;
+  height: 90vh !important;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+#line{
+  transition: all 0.5s ease-in-out;
+  color: black;
+}
+.menu ul{
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  height: 80%;
+  width: 50%;
+}
+li{
+  list-style: none;
+}
+a{
+  text-decoration: none !important;
+  color: white;
+}
+.menu ul li a{
+  font-size: 4rem;
+  cursor: pointer;
+  color: white;
+}
+.myworks li{
+  list-style: none;
+  font-size: 2rem;
+  color: white;
+}
+.menu ul li a:hover{
+  color: #FA58B6;
+}
+.menu ul li:hover{
+  animation: shake 0.4s;
+}
+.contactMain #desc:hover{
+  animation: r 1s;
+}
+@keyframes shake {
+  0% {transform: rotate(-10deg);}
+  50% {transform: rotate(10deg);}
+  100% {transform: rotate(0);}
+}
+@keyframes r {
+  0% {transform: rotateY(0deg);}
+  50% {transform: rotateY(180deg);}
+  100% {transform: rotateY(360deg);}
+}
+@keyframes sone {
+  0% {opacity: 0;}
+  50% {opacity: 1;}
+  100% {opacity: 0;}
+}
+@keyframes stwo {
+  0% {opacity: 1;}
+  50% {opacity: 0;}
+  100% {opacity: 1;}
+}
+@keyframes sthree {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+@keyframes sfour {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+#title{
+  font-size: 3rem;
+}
+#desc{
+  font-size: 2rem;
+  max-width: 60%;
+  align-content: center;
+}
+#icon{
+  height: 60px;
+  width: 60px;
+  transition: 0.3s all ease-in-out;
+  cursor: pointer;
+  border-radius: 5%;
+  box-shadow: 3px 0.5px #ffd6ee ;
+  color: white;
+}
+#icon:hover{
+  height: 70px;
+  width: 70px;
+  color: #1A1A40;
+}
+#line:hover{
+  color: red;
+}
+.moon{
+  border-radius: 50%;
+  width: 40%;
+  height: auto;
+  padding-top: 40%;
+  background: white;
+  right: 0;
+}
+.circle{
+  border-radius: 50%;  
+  border: thin 0.1px #242456; 
+  box-shadow: 1px 2px 1px 2px gray; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  height: 0;
+  top: 0vw;
+  right: -50vw;
+}
+.circle div{
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+}
+.starsone, .starstwo, .starsthree, .starsfour{
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50vh;
+  height: 50vh;
+}
+.starsone{
+  top: 10vh;
+  left: 20vh;
+}
+.starstwo{
+  top: 0vh;
+  right: 50vh;
+}
+.starsthree{
+  top: 50vh;
+  left: 50vh;
+}
+.starsfour{
+  top: 50vh;
+  left: 80vh;
+}
+.star{
+  border-radius: 50%;
+}
+.starsone .star{
+  height: 1px;
+  width: 1px;
+  background-color: white;
+  animation: sone infinite 2s;
+}
+.starstwo .star{
+  height: 2px;
+  width: 2px;
+  background-color: white;
+  animation: stwo infinite 2s;
+  z-index: 3;
+}
+.starsthree .star{
+  height: 1px;
+  width: 1px;
+  background-color: white;
+  animation: sthree infinite 2s;
+}
+.starsfour .star{
+  height: 1.5px;
+  width: 1.5px;
+  background-color: white;
+  animation: sfour infinite 2s;
+}
+@keyframes twin {
+  0% {transform: rotate(330deg) translateX(0)}
+  
+  20%, 100% {transform: rotate(330deg) translateX(-300vh);}
+}
+.twin{
+  position: absolute;
+  z-index: 1;
+  height: 1vh;
+  width: 2vh;
+  top: 10vh;
+  right: 50vh;
+  background-color: white;
+  border-radius: 30%;
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.1),
+  0 0 0 8px rgba(255,255,255,0.1), 0 0 20px rgba(255,255,255,1);
+  animation: twin 6s linear infinite;
+}
+.twin::before{
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 300px;
+  height: 1px;
+  background-color: white;  
+}
+
+@media only screen and (min-width: 479px) and (max-width: 768px){ 
+  #title{
+    font-size: 30px;
+  }
+  #desc, .myworks li{
+    font-size: 25px;
+    max-width: 70%;
+  }
+  #icon{
+    height: 50px;
+    width: 50px;
+  }
+  #icon:hover{
+    height: 60px;
+    width: 60px;
+  }
+  .circle{
+    top: 50vw; 
+  }
+  .twin{
+    right: 20vh;
+  }
+  .routes{
+    width: 10%;
+    height: 20%;
+    z-index: 2;
+    position: fixed;
+    left: 0;
+    top: 40%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+  }
+}
+
+@media only screen and (max-width: 479px){
+  #title{
+    font-size: 20px;
+  }
+  #desc, .myworks li{
+    font-size: 18px;
+    max-width: 80%;
+  }
+  .myworks, .myworks ul{
+    width: 100%;
+  }
+  .m
+  .myworks ul{
+    height: 70%;
+    background-color: red;
+  }
+  #icon{
+    height: 40px;
+    width: 40px;
+  }
+  #icon:hover{
+    height: 50px;
+    width: 50px;
+  }
+  .circle{
+    top: 170vw; 
+  }
+  .twin{
+    right: 0vh;
+  }
+  .routes{
+    width: 10%;
+    height: 20%;
+    flex-direction: row;
+    top: 95vh;
+    left: 45%;
+  }
+  #line{
+    transform: rotate(90deg);
+  }
+}
