@@ -219,9 +219,9 @@ function App() {
           <div className="icons" style= {{width: "80%", height: "70%", display: "flex", justifyContent: "space-evenly", alignItems: "center", flexWrap: "wrap", flexDirection: "column"}}>
             <h1 id='desc' style= {{cursor: "pointer"}}><a style= {{color: "#1A1A40"}} href = "mailto: mustaphade1999@gmail.com">mustaphadx1999@gmail.com</a></h1>
             <div  className="icons" style= {{height: "50%", width: "80%", display: "flex", justifyContent: "space-evenly", alignItems: "center"}}>
-              <a data-aos="fade-up" data-aos-duration="1000" data-aos-delay= "0" href="https://github.com/hmk99"><GitHubIcon href= "https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_box-shadow" id= "icon" /></a>
-              <a data-aos="fade-up" data-aos-duration="1000" data-aos-delay= "500" href="https://www.linkedin.com/in/mustapha-kacimielhassani-81b8161a6/"><LinkedInIcon id= "icon"/></a>
-              <a data-aos="fade-up" data-aos-duration="1000" data-aos-delay= "1000" href="https://web.facebook.com/mustapha.ko.7"><FacebookIcon id= "icon" /></a>
+              <a data-aos="fade-up" data-aos-duration="1000" data-aos-delay= "0" href="https://github.com/hmk99"  target="_blank" rel="noopener noreferrer"><GitHubIcon href= "https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_box-shadow" id= "icon" /></a>
+              <a data-aos="fade-up" data-aos-duration="1000" data-aos-delay= "500" href="https://www.linkedin.com/in/mustapha-kacimielhassani-81b8161a6/"  target="_blank" rel="noopener noreferrer"><LinkedInIcon id= "icon"/></a>
+              <a data-aos="fade-up" data-aos-duration="1000" data-aos-delay= "1000" href="https://web.facebook.com/mustapha.ko.7" target="_blank" rel="noopener noreferrer"><FacebookIcon id= "icon"/></a>
             </div>
           </div>
         </div>
