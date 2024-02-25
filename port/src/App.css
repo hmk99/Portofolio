@@ -1,45 +1,133 @@
 .App{
   height: auto;
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   padding: 0;
+  margin: 0;
+  box-sizing: border-box;
   color: white;
   scroll-behavior: smooth !important;
   background-color: #1A1A40;
   overflow-x: hidden !important;
-  overflow: hidden;
+  position: relative;
 }
-#home, #works, #about, #contact{
-  width: 100%;
-  height: 100vh;
+p {
+  font-size: 2rem;
+}
+#home, #works, #about, #contact, #tools{
+  width: 100vw;
+  min-height: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
 }
 #home{
+  align-items: flex-end;
   background-color: #1A1A40;
+  min-height: 100vh;
   color: white;
 }
 #about{
   background-color: #242456;
 }
 #works{
-  background-color: hsl(210, 50%, 33%);
+  background-color: #2a547e;
 }
 #contact{
   background-color: #FA58B6;
+  height: 100vh;
+}
+#tools {
+  min-height: 90vh;
+  background: white;
+  color: black;
 }
 nav > h1{
-  background: linear-gradient(to top left, #b5b5b5 , rgb(255, 255, 255) , #5b5b5b );
+  background: linear-gradient(to top left, black, rgb(120, 120, 120), black );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; 
   -moz-background-clip: text;
   -moz-text-fill-color: transparent;
+  text-shadow: 10px 10px 30px rgb(192, 192, 192);
+}
+.toolsCat:nth-child(1) h4 {
+  background: linear-gradient(to right, #E34C26, #0F5298, #CD6799 );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+}
+.toolsCat:nth-child(2) h4 {
+  background: linear-gradient(to right, #F0DB4F, #0868AC, #61DBFB );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+}
+.toolsCat:nth-child(3) h4 {
+  background: linear-gradient(to right, #3C873A, #CC3534 );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+}
+.toolsCat:nth-child(4) h4 {
+  background: linear-gradient(to right, gray, #F29111 );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+}
+.toolsCat:nth-child(5) h4 {
+  background: linear-gradient(to right, #F1502F, #333333 );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+}
+.logo_container {
+  height: 10vh;
+  position: relative;
+}
+nav img {
+  height: 100%;
+  object-fit: contain;
+  transition: all .25s linear;
+  cursor: pointer;
+}
+.logo_container::after {
+  content: 'View THE LOGO in Full Screen';
+  position: absolute;
+  top: 100%;
+  width: 0;
+  height: 0;
+  background: white;
+  border-radius: 5px;
+  left: 0;
+  font-weight: lighter;
+  font-style: italic;
+  text-shadow: 2px 2px 5px rgb(255, 0, 0);
+  transition: all .25s ease-in-out;
+  color: transparent;
+  overflow: hidden !important;
+}
+.logo_container:hover::after {
+  animation: logo .1s linear forwards;
+}
+
+@keyframes logo {
+  50% {width: 1px; height: 5vh}
+  90% {height: 5vh; width: max-content; border: 5px solid red;}
+  100% {height: 5vh; width: max-content; border: 5px solid red; color: black;}
+}
+
+#logoFull {
+  height: 0;
+  width: 0;
+  pointer-events: none;
+  object-fit: contain;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: 5;
+  border: .1px solid transparent;
+  border-radius: 50px;
+  transition: all .5s ease-in-out;
+  position: fixed;
 }
 nav{
-  width: 90%;
+  width: 90vw !important;
   height: 10vh;
   display: flex;
   justify-content: space-between;
@@ -47,8 +135,38 @@ nav{
   margin-top: 0;
   position: fixed;
   top: 0;
-  padding: 5px;
   z-index: 2;
+  background: rgba(255, 255, 255, 0.881);
+  backdrop-filter: blur(1.2px);
+  -webkit-backdrop-filter: blur(1.2px);
+  border: 10px solid transparent;
+  box-shadow: 0 5px 10px .5px #1A1A40;
+  color: black;
+  transition: all .5s ease-in-out;
+  
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+nav h3 a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+nav h3 a {
+  color: #1A1A40;
+  transition: all .25s ease-in-out;
+}
+nav h3 a:hover {
+  color: #2a547e !important;
+}
+nav h3:hover #phoneIcon {
+  scale: 1.1;
+}
+nav #phoneIcon {
+  color: #2a547e !important;
+  scale: 0;
+  animation: shake .25s infinite linear;
+  transition: all .25s ease-in-out;
 }
 .routes{
   width: 10%;
@@ -62,27 +180,43 @@ nav{
   align-items: flex-start;
   flex-direction: column;
 }
-.homeMain, .aboutMain, .worksMain, .contactMain{
-  margin: auto;
-  width: 90%;
-  height: 90vh !important;
+.homeMain, .aboutMain, .worksMain, .contactMain, .toolsMain{
+  width: 100vw;
+  min-height: 50vh;
   display: flex;
   justify-content: space-evenly;
+  gap: 1rem;
+  padding: 1rem;
   align-items: center;
   flex-wrap: wrap;
-  padding: 10px;
+}
+.homeMain {
+  justify-content: space-evenly;
+  min-height: 90vh;
+}
+.toolsMain {
+  min-height: 90vh;
 }
 #line{
   transition: all 0.5s ease-in-out;
   color: black;
+}
+.menu {
+  opacity: 0;
+  height: 0;
+  pointer-events: none;
+  transition: all .5s ease-in-out;
+  margin-top: 10vh;
 }
 .menu ul{
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
   align-items: center;
-  height: 80%;
+  height: 100%;
+  gap: .5rem;
   width: 50%;
+  padding: .5rem;
 }
 li{
   list-style: none;
@@ -92,14 +226,161 @@ a{
   color: white;
 }
 .menu ul li a{
-  font-size: 4rem;
+  font-size: 3rem;
   cursor: pointer;
   color: white;
+}
+#desc{
+  display: flex;
+  gap: .5rem;
+  flex-direction: column;
+  justify-content: space-evenly;
+  letter-spacing: .25rem;
+  text-align: center;
+  width: max(50%, 350px);
+  border: 0.1px solid black;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.48);
+  backdrop-filter: blur(1.2px);
+  -webkit-backdrop-filter: blur(1.2px);
+  box-shadow: 0 5px 10px .5px black;
+  color: black;
+  padding: .5rem;
+  transition: .5s all ease-in-out;
+}
+#desc h4 {
+  width: 100%;
+  line-height: 2.5rem;
+}
+#desc span {
+  display: inline-block;
+}
+.myworks, .toolsList {
+  width: max(50%, 300px);
+  height: 90%;
+  display: flex;
+  border: 0.1px solid black;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.48);
+  backdrop-filter: blur(1.2px);
+  -webkit-backdrop-filter: blur(1.2px);
+  box-shadow: 0 5px 10px .5px black;
+  transition: .5s all ease-in-out;
+}
+.myworks {
+  padding: 1rem;
+  gap: 1rem;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 .myworks li{
   list-style: none;
   font-size: 2rem;
-  color: white;
+  color: black;
+  display: flex;
+  gap: .5rem;
+}
+.myworks p, #desc {
+  text-shadow: 1px 1px 10px white;
+}
+.myworks p {
+  letter-spacing: .25rem;
+}
+.myworks span, #desc span:first-child {
+  height: min-content;
+  color: #ff4136;
+  font-style: italic;
+  font-weight: bolder;
+  background: white;
+  box-shadow: 0 4px 30px #1A1A40;
+  border: none;
+  color: #FA58B6;
+}
+@keyframes heart {
+  0% {color: black;}
+  50% {color: white;}
+  100% {color: black;}
+}
+.myworks span {
+  font-weight: bolder;
+  font-style: italic;
+  text-shadow: 1px 1px 5px black;
+}
+.toolsList {
+  padding: 1rem;
+  gap: 1rem;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.toolsList > div {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 2rem;
+  gap: 2rem;
+  position: relative;
+}
+.toolsCat h4 {
+  transform: rotate(-45deg);
+  font-style: italic;
+  font-weight: bolder;
+  border: .1px solid transparent;
+  box-shadow: 1px 1px 20px 1px #1A1A40;
+  padding: .5rem;
+  border-radius: 5px;
+  text-shadow: 5px 10px 5px rgb(180, 180, 180);
+}
+.toolsList > div::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: .1px;
+  background: #1A1A40;
+  box-shadow: 0 0 5px .5px white;
+  top: 100%;
+  left: 0;
+  backdrop-filter: blur(1.2px);
+  -webkit-backdrop-filter: blur(1.2px);
+  box-shadow: 0 5px 15px .1px #242456;
+  transition: .5s all ease-in-out;
+}
+.tool {
+  height: 70px;
+  width: 70px;
+  position: relative;
+}
+.toolName {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  translate: -50% 0;
+  transition: .5s all ease-in-out;
+  scale: 0;
+  font-weight: bolder;
+  font-style: italic;
+}
+.tool:hover .toolName {
+  scale: 1;
+}
+#toolIcon {
+  height: 100%;
+  width: 100%;
+  border-radius: 5%;
+  box-shadow: 5px 1px #1A1A40;
+  transform: perspective(400px) rotateY(-25deg);
+  transition: .3s all ease-in-out;
+}
+#toolIcon:hover {
+  box-shadow: unset;
+  transform: none;
+  color: white !important;
+  background: black !important;
 }
 .menu ul li a:hover{
   color: #FA58B6;
@@ -141,28 +422,80 @@ a{
 
 #title{
   font-size: 3rem;
+  letter-spacing: .25rem;
+  font-style: italic;
+  font-weight: bolder;
 }
-#desc{
-  font-size: 2rem;
-  max-width: 60%;
-  align-content: center;
+#email a {
+  color: white;
+  transition: all .25s ease-in-out;
+  font-weight: bolder;
+  font-style: italic;
+}
+#email:hover a {
+  color: #1A1A40;
+}
+#email::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 0;
+  height: .1px;
+  background: #1A1A40;
+  transition: all .25s ease-in-out;
+}
+#email:hover::after {
+  width: 100%;
 }
 #icon{
   height: 60px;
   width: 60px;
-  transition: 0.3s all ease-in-out;
+  transition: 0.25s all ease-in-out;
   cursor: pointer;
   border-radius: 5%;
-  box-shadow: 3px 0.5px #ffd6ee ;
+  box-shadow: 3px 1px #1A1A40;
+  transform: perspective(400px) rotateY(-25deg);
   color: white;
 }
 #icon:hover{
   height: 70px;
   width: 70px;
   color: #1A1A40;
+  box-shadow: unset;
+  transform: none;
 }
 #line:hover{
   color: red;
+}
+footer {
+  color: #1A1A40;
+  position: sticky;
+  bottom: 0;
+  height: 10vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.63);
+  backdrop-filter: blur(1.2px);
+  -webkit-backdrop-filter: blur(1.2px);
+  border: 10px solid transparent;
+  box-shadow: 0 5px 15px .5px #1A1A40;
+}
+footer #cc:first-child {
+  display: inline-block;
+  font-weight: bolder;
+}
+footer #cc:first-child {
+  animation: cc 5s linear infinite;
+}
+@keyframes cc {
+  0% {transform:  rotateY(0deg); color: white;}
+  25% {transform:  rotateY(90deg); color: white;}
+  50% {transform:  rotateY(180deg); color: #1A1A40;}
+  75% {transform:  rotateY(270deg); color: #1A1A40;}
+  100% {transform:  rotateY(360deg); color: white;}
 }
 .moon{
   border-radius: 50%;
@@ -173,21 +506,54 @@ a{
   right: 0;
 }
 .circle{
-  border-radius: 50%;  
-  border: thin 0.1px #242456; 
-  box-shadow: 1px 2px 1px 2px gray; 
+  --height: 144vh;
+  height: var(--height);
+  width: var(--height);
+  position: absolute;
+  border-radius: 100%;
+  top: calc(100vh - (var(--height)/ 2));
+  right: calc(var(--height)/ (-2));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden !important;
+}
+.circle div {
+  position: absolute;
   display: flex; 
   justify-content: center; 
   align-items: center;
-  height: 0;
-  top: 0vw;
-  right: -50vw;
+  border-radius: 100%;
 }
-.circle div{
-  display: flex; 
-  justify-content: center; 
+.tst {
+  height: 10vw;
+  width: 10vw;
+  background: red;
+  position: absolute;
+  top: 90vh;
+  right: -5vw;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
+.tst div {
+  height: 7.5vw;
+  width: 7.5vw;
+  background: blue;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tst div div {
+
+  height: 5vw;
+  width: 5vw;
+  background: green;
+  border-radius: 100%;
+}
+
 .starsone, .starstwo, .starsthree, .starsfour{
   position: fixed;
   display: flex;
@@ -269,16 +635,35 @@ a{
 }
 
 @media only screen and (min-width: 479px) and (max-width: 768px){ 
+  nav {
+    width: 100%;
+  }
+  .menu ul li a{
+    font-size: 20px;
+  }
+  h1 {
+    font-size: 18px;
+  }
+  h4, #desc span {
+    font-size: 12px;
+  }
+  p, li, span, a {
+    font-size: 12px;
+  }
   #title{
     font-size: 30px;
-  }
-  #desc, .myworks li{
-    font-size: 25px;
-    max-width: 70%;
   }
   #icon{
     height: 50px;
     width: 50px;
+  }
+  .toolsList {
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .tool {
+    height: 50px;
+    width: 60px;
   }
   #icon:hover{
     height: 60px;
@@ -304,24 +689,43 @@ a{
 }
 
 @media only screen and (max-width: 479px){
+  nav {
+    width: 100%;
+  }
+  .menu ul li a{
+    font-size: 15px;
+  }
+  h1 a {
+    font-size: 15px;
+  }
+  h4, .toolsCat h4 {
+    font-size: 10px;
+  }
+  p, li, span {
+    font-size: 10px;
+  }
   #title{
     font-size: 20px;
   }
-  #desc, .myworks li{
-    font-size: 18px;
-    max-width: 80%;
-  }
-  .myworks, .myworks ul{
+  #desc h4 {
     width: 100%;
+    line-height: 1rem;
+    letter-spacing: 1px;
   }
-  .m
-  .myworks ul{
-    height: 70%;
-    background-color: red;
+  .icons {
+    flex-direction: column;
   }
   #icon{
     height: 40px;
     width: 40px;
+  }
+  .toolsList {
+    gap: .5rem;
+    padding: .5rem;
+  }
+  .tool {
+    height: 50px;
+    width: 50px;
   }
   #icon:hover{
     height: 50px;
@@ -342,5 +746,70 @@ a{
   }
   #line{
     transform: rotate(90deg);
+  }
+
+}
+
+@media only screen and (max-width: 1200px) and (orientation: landscape) {
+  #title {
+    font-size: 15px;
+  }
+  #home, #works, #about, #contact, #tools {
+    min-height: 100vh;
+  }
+  .homeMain, .aboutMain, .worksMain, .contactMain, .toolsMain {
+    min-height: 100vh;
+  }
+  #desc, .myworks, .toolsList {
+    min-height: 90vh;
+    font-size: 5px;
+    gap: .1rem;
+    padding: .5rem;
+  }
+  #desc h4 span, .toolsCat h4 {
+    font-size: 15px;
+  }
+  #desc h4 {
+    line-height: 1rem;
+    letter-spacing: 1px;
+  }
+  .myworks li, .myworks p {
+    font-size: 15px;
+  }
+  .tool {
+    height: 50px;
+    width: 50px;
+  }
+}
+
+@media only screen and (max-height: 600px) and (orientation: landscape) {
+  #title {
+    font-size: 15px;
+  }
+  #home, #works, #about, #contact, #tools {
+    min-height: 100vh;
+  }
+  .homeMain, .aboutMain, .worksMain, .contactMain, .toolsMain {
+    min-height: 100vh;
+  }
+  #desc, .myworks, .toolsList {
+    min-height: 30vh;
+    font-size: 5px;
+    gap: .1rem;
+    padding: .25rem;
+  }
+  #desc h4 span, .toolsCat h4 {
+    font-size: 10px;
+  }
+  #desc h4 {
+    line-height: 0;
+    letter-spacing: .5px;
+  }
+  .myworks li, .myworks p {
+    font-size: 10px;
+  }
+  .tool {
+    height: 40px;
+    width: 40px;
   }
 }
